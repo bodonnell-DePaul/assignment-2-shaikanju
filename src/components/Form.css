@@ -1,0 +1,27 @@
+.form {
+
+    background-color: rgb(78, 171, 78);
+    padding: 20px;
+    /* Add some padding */
+    border-radius: 5px
+}
+
+.button {
+    background-color: rgb(37, 37, 217);
+    color: white;
+    display: block;
+    width: 200px
+}
+
+/* .input {
+
+    border-radius: 7px;
+
+    height: 30px
+} */
+
+.formLabel {
+
+    display: block;
+
+}

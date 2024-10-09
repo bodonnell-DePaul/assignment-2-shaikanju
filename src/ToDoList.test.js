@@ -1,5 +1,6 @@
 import { render, screen, fireEvent } from '@testing-library/react';
-import TodoList from './ToDoList';
+
+import TodoList from './components/ToDoList';
 
 describe('TodoList Component', () => {
   test('renders without crashing', () => {
@@ -42,18 +43,18 @@ describe('TodoList Component', () => {
     const dueDateObj = new Date(dueDate);
     const diffTime = Math.abs(dueDateObj - currentDate);
     const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
-  
+
     if (diffDays > 7) return 'primary';
     if (diffDays <= 7 && diffDays > 4) return 'success';
     if (diffDays <= 4 && diffDays > 2) return 'warning';
     return 'danger';
   };
-  
+
   test('applies correct variant based on due date', () => {
     render(<TodoList />);
     const todoItems = screen.getAllByRole('tabpanel');
     const todoTab = screen.getAllByRole('tablist');
-  
+
     let variants = [];
     todoItems.forEach((item) => {
       const input = item.querySelector('input');
@@ -64,12 +65,12 @@ describe('TodoList Component', () => {
     });
 
     todoTab.forEach((item, index) => {
-        const anchor = item.querySelector('a');
-        expect(anchor).toHaveClass(`list-group-item-${variants[index]}`);
-        
+      const anchor = item.querySelector('a');
+      expect(anchor).toHaveClass(`list-group-item-${variants[index]}`);
+
+    });
+
+
   });
-
-
-   });
 
 });
